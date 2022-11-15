@@ -11,7 +11,7 @@ extract_data_file='extract_season_data.xq'
 generate_md_file='generate_markdown.xsl'
 md_file='season_page.md'
 
-# TODO(ts): meter los errores en un xml con error
+# Imprime el error por stdout y genera el md pero con mensaje de error
 print_error() {
     [ "$1" ] && echo "ERROR: $1"
     echo 'Usage: tpe.sh <season_id>'
@@ -22,13 +22,14 @@ print_error() {
     exit
 }
 
+# Genera el markdown file a partir del 'generate_markdown.xsl'
 generate_md() {
     [ -f "$generate_md_file" ] || return
     java net.sf.saxon.Transform -s:"$data_file" -xsl:"$generate_md_file" > "$md_file" 2>/dev/null
 }
 
 # Obtenemos el id de la season
-[ -z "$*" ] && print_error
+[ -z "$*" ] && print_error "'season_id' is required"
 season_id="$1"
 
 # Verificamos que el id sea valido

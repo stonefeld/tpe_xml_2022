@@ -5,7 +5,7 @@
     <xsl:choose>
       <xsl:when test="//error">
 #### Error report:
-        <xsl:for-each select="season/error">
+        <xsl:for-each select="season_data/error">
 - <xsl:value-of select="." />
         </xsl:for-each>
       </xsl:when>
