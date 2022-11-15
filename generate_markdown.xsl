@@ -33,7 +33,7 @@ ___
         <xsl:for-each select="event">
 | Date | Local | Visitor |
 | --- | --- | --- |
-| <xsl:value-of select="//season_data/stages/stage/@start_date" /> | <xsl:value-of select="local/score" /> | <xsl:value-of select="visitor/score" /> |
+| <xsl:value-of select="@start_time" /> | <xsl:value-of select="local/score" /> | <xsl:value-of select="visitor/score" /> |
 | | <xsl:value-of select="local/name" /> | <xsl:value-of select="visitor/name" /> |
         </xsl:for-each>
 ___
