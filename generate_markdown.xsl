@@ -10,7 +10,7 @@
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates select="season_data"></xsl:apply-templates>
+          <xsl:apply-templates select="season_data"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
