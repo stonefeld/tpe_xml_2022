@@ -31,6 +31,7 @@ ___
         </xsl:for-each>
 #### Events:
         <xsl:for-each select="event">
+            <xsl:sort select="@start_time" order="ascending"/>
 | Date | Local | Visitor |
 | --- | --- | --- |
 | <xsl:value-of select="@start_time" /> | <xsl:value-of select="local/score" /> | <xsl:value-of select="visitor/score" /> |
