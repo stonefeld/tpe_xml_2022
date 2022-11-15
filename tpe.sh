@@ -19,7 +19,7 @@ print_error() {
         echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?><season_data xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-Instance\" xsi:noNamespaceSchemaLocation=\"season_data.xsd\"><error>$1</error></season_data>" > "$data_file"
         generate_md
     fi
-    exit
+    exit 1
 }
 
 # Genera el markdown file a partir del 'generate_markdown.xsl'
