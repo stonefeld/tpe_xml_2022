@@ -1,0 +1,7 @@
+#!/bin/sh
+export CLASSPATH=./.java-libs/saxon/saxon9he.jar:./.java-libs/xerces/xercesSamples.jar:./.java-libs/xerces/xml-apis.jar:./.java-libs/xerces/xercesImpl.jar:$CLASSPATH
+alias jdom="java dom.Writer"
+alias jsax="java sax.Writer"
+alias jque="java net.sf.saxon.Query"
+alias jxsl="java net.sf.saxon.Transform"
+alias xpre="xmllint --format -"

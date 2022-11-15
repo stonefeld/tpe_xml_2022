@@ -27,18 +27,18 @@
                 <groups>
                 {
                     for $current_group in doc("season_info.xml")//stages/$current_stage
-                    
-                    return             
+
+                    return
                     <group>
                     {
-                        for $current_competitor in data($current_group//competitor)
+                        for $current_competitor in $current_group//competitor
                         return
                         <competitor>
                             <name>
-                                {data($current_group//$current_competitor/@country)}
+                                {data($current_competitor/@name)}
                             </name>
                             <country>
-                                {data($current_group//$current_competitor/@country)}
+                                {data($current_competitor/@country)}
                             </country>
                         </competitor>
                     }
@@ -46,7 +46,7 @@
                         for $current_summary in doc("season_summaries.xml")//summary[./sport_event//groups/group/@id = $current_stage/@id]
 
                         return
-                        <event start_time="{data(@start_time)}">
+                        <event start_time="{data($current_summary/sport_event/@start_time)}">
                             <status>
                                 {data($current_summary/sport_event_status/@match_status)}
                             </status>
@@ -71,7 +71,7 @@
                             </visitor>
                         </event>
                     }
-                        
+
 
                     </group>
 
@@ -80,5 +80,5 @@
             </stage>
     }
     </stages>
-    
+
 </season_data>
