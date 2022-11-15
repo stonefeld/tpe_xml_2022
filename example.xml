@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ESTE ES UN EJEMPLO QUE SIGUE LAS REGLAS DEL XSD -->
+<season_data>
+    <season>
+        <name><!-- string--></name>
+        <competition><!-- string--></competition>
+        <date>
+            <start><!-- string--></start>
+            <end><!-- string--></end>
+            <year><!-- string--></year>
+        </date>
+    </season>
+    <stages>
+        <stage phase="" start_date="" end_date="">
+            <groups> <!-- lista de <group> puse solo 1-->
+                <group>
+                    <competitor>
+                        <name><!-- string--></name>
+                        <country><!-- string--></country>
+                    </competitor>
+                    <event name="">
+                        <status><!-- string--></status>
+                        <local>
+                            <name><!-- string--></name>
+                            <score><!-- string--></score>
+                        </local>
+                        <visitor>
+                            <name><!-- string--></name>
+                            <score><!-- string--></score>
+                        </visitor>
+                    </event>
+                    
+                </group>
+
+            </groups>
+        </stage>
+    </stages>
+    
+</season_data>
