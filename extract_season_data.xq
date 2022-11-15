@@ -26,21 +26,27 @@
             <stage phase= "{data($current_stage/@phase)}"  start_date="{data($current_stage/@start_date)}" end_date="{data($current_stage/@end_date)}">
                 <groups>
                 {
-                    for $current_group in doc("season_info")//stages/$current_stage
+                    for $current_group in doc("season_info.xml")//stages/$current_stage
                     
-                    let $current_summary := doc("season_summaries.xml")//summary[./sport_event//groups/group/@id = $current_stage/@id]
-
                     return             
                     <group>
+                    {
+                        for $current_competitor in data($current_group//competitor)
+                        return
                         <competitor>
                             <name>
-                                {data($current_group//competitor/@name)}
+                                {data($current_group//$current_competitor/@country)}
                             </name>
                             <country>
-                                {data($current_group//competitor/@country)}
+                                {data($current_group//$current_competitor/@country)}
                             </country>
                         </competitor>
-                        <event start_time="{data($current_summary/sport_event/@start_time)}">
+                    }
+                    {
+                        for $current_summary in doc("season_summaries.xml")//summary[./sport_event//groups/group/@id = $current_stage/@id]
+
+                        return
+                        <event start_time="{data(@start_time)}">
                             <status>
                                 {data($current_summary/sport_event_status/@match_status)}
                             </status>
@@ -64,6 +70,8 @@
                                 </score>
                             </visitor>
                         </event>
+                    }
+                        
 
                     </group>
 

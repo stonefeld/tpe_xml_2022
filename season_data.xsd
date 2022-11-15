@@ -50,7 +50,7 @@
 
  <xsd:complexType name="groupT">
   <xsd:sequence>
-    <xsd:element name="competitor">
+    <xsd:element name="competitor" minOccurs="1" maxOccurs="unbounded">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="name" type="xsd:string"/>
