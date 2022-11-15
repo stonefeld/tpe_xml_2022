@@ -38,8 +38,7 @@ grep -E "\s*<season\s+id=\"$season_id\".*/>" seasons.xml &>/dev/null
 [ "$?" -ne 0 ] && print_error "The given 'season_id' is not valid"
 
 # Verificamos la existencia de una api key
-[ -f api_key.txt ] || { [ -z "$SPORTRADAR_API" ] && print_error "File 'api_key.txt' or envvar 'SPORTRADAR_API' are required"; }
-SPORTRADAR_API="$(cat api_key.txt)"
+[ -z "$SPORTRADAR_API" ] && { [ -f api_key.txt ] && SPORTRADAR_API="$(cat api_key.txt)" || print_error "File 'api_key.txt' or envvar 'SPORTRADAR_API' are required"; }
 
 # Declaramos las urls para las correspondientes queries
 base_url="https://api.sportradar.com/soccer/trial/v4/en/seasons/${season_id}"
