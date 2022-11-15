@@ -7,6 +7,6 @@ elif [ "$(uname)" == "Darwin" ]; then
 elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
     SEP=";"
 else
-    SEP=":"
+    SEP=";"
 fi
 export CLASSPATH=./.java-libs/saxon/saxon9he.jar$SEP./.java-libs/xerces/xercesSamples.jar$SEP./.java-libs/xerces/xml-apis.jar$SEP./.java-libs/xerces/xercesImpl.jar$SEP$CLASSPATH
