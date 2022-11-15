@@ -1,5 +1,7 @@
 *.pdf
 season_info.xml
 season_summaries.xml
+season_data.xml
+season_page.md
 schemas/
 .java-libs/

@@ -50,4 +50,5 @@ curl $summaries_url -o $summaries_file 2>/dev/null
 sed -i 's%\sxmlns="http://schemas.sportradar.com/sportsapi/soccer/v4"%%' "$info_file"
 sed -i 's%\sxmlns="http://schemas.sportradar.com/sportsapi/soccer/v4"%%' "$summaries_file"
 
-java net.sf.saxon.Query "$extract_data_file"
+java net.sf.saxon.Query "$extract_data_file" > "$data_file"
+generate_md

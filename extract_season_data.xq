@@ -26,7 +26,7 @@
             <stage phase= "{data($current_stage/@phase)}"  start_date="{data($current_stage/@start_date)}" end_date="{data($current_stage/@end_date)}">
                 <groups>
                 {
-                    for $current_group in doc("season_info.xml")//stages/$current_stage
+                    for $current_group in $current_stage/groups/group
 
                     return
                     <group>
@@ -43,7 +43,7 @@
                         </competitor>
                     }
                     {
-                        for $current_summary in doc("season_summaries.xml")//summary[./sport_event//groups/group/@id = $current_stage/@id]
+                        for $current_summary in doc("season_summaries.xml")//summary[./sport_event/sport_event_context/groups/group/@id = $current_group/@id]
 
                         return
                         <event start_time="{data($current_summary/sport_event/@start_time)}">
