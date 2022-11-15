@@ -52,7 +52,7 @@
                             </status>
                             <local>
                                 <name>
-                                    {data($current_summary//competitor[@qualifier = "home"]/@name)}
+                                    {data($current_summary/sport_event/competitors/competitor[@qualifier = "home"]/@name)}
 
                                 </name>
                                 <score>
@@ -61,7 +61,7 @@
                             </local>
                             <visitor>
                                 <name>
-                                    {data($current_summary//competitor[@qualifier = "away"]/@name)}
+                                    {data($current_summary/sport_event/competitors/competitor[@qualifier = "away"]/@name)}
 
                                 </name>
                                 <score>
